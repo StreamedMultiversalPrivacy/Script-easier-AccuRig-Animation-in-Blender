@@ -1,4 +1,5 @@
 # Script-To-Animate-AccuRig-Easier-in-Blender
+![symbol](https://github.com/StreamedMultiversalPrivacy/Script-for-animating-AccuRigs-easier-in-Blender/assets/143398299/72970c1c-89d8-4b31-92f8-0fc1e85d5d85)
 
 ![s1](https://github.com/StreamedMultiversalPrivacy/Script-easier-AccuRig-Animation-in-Blender/assets/143398299/a511e779-c7cd-4262-9977-e68cb53d93db)
 Here we are have the already created AccuRig selected in Pose Mode.
