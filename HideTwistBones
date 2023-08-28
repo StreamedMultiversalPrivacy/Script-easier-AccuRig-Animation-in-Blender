@@ -1,0 +1,43 @@
+import bpy
+
+armature = bpy.context.active_object
+
+def StringMatch(str, toMatch): # Fine I'll do it myself
+    sequence = ""
+    indexMatch = 0
+    
+    
+    for letter in str:
+        if sequence == toMatch:
+                break
+            
+        if letter == toMatch[indexMatch]:
+            sequence += letter
+            indexMatch += 1
+        else:
+            sequence = ""
+            indexMatch = 0
+
+    return sequence == toMatch
+
+for poseBone in armature.pose.bones:
+    name = poseBone.name
+    twistMatch = StringMatch(name, "Twist")
+    shareMatch = StringMatch(name, "Share")
+    neckMatch = StringMatch(name, "Neck")
+    pelvisMatch = StringMatch(name, "Pelvis")
+    
+    if(StringMatch(name, "_L_")):
+        poseBone.name = poseBone.name + ".L"
+        
+    if(StringMatch(name, "_R_")):
+        poseBone.name = poseBone.name + ".R"
+        
+    poseBone.name = poseBone.name.replace("_L_", "_")
+    poseBone.name = poseBone.name.replace("_R_", "_")
+    
+    if (twistMatch or shareMatch or pelvisMatch) and not neckMatch: 
+        
+        poseBone.bone.hide = True
+    
+
