@@ -23,21 +23,22 @@ def StringMatch(str, toMatch): # Fine I'll do it myself
 for poseBone in armature.pose.bones:
     name = poseBone.name
     twistMatch = StringMatch(name, "Twist")
+    baseMatch = StringMatch(name, "_base_")
+    twistMatch_2 = StringMatch(name, "_twist_")
     shareMatch = StringMatch(name, "Share")
     neckMatch = StringMatch(name, "Neck")
     pelvisMatch = StringMatch(name, "Pelvis")
     
-    if(StringMatch(name, "_L_")):
-        poseBone.name = poseBone.name + ".L"
-        
-    if(StringMatch(name, "_R_")):
-        poseBone.name = poseBone.name + ".R"
-        
-    poseBone.name = poseBone.name.replace("_L_", "_")
-    poseBone.name = poseBone.name.replace("_R_", "_")
+#    if(StringMatch(name, "_L_")):
+#        poseBone.name = poseBone.name + ".L"
+#        
+#    if(StringMatch(name, "_R_")):
+#        poseBone.name = poseBone.name + ".R"
+#        
+#    poseBone.name = poseBone.name.replace("_L_", "_")
+#    poseBone.name = poseBone.name.replace("_R_", "_")
     
-    if (twistMatch or shareMatch or pelvisMatch) and not neckMatch: 
+    if (twistMatch or shareMatch or pelvisMatch or twistMatch_2 or baseMatch) and not neckMatch: 
         
         poseBone.bone.hide = True
     
-
